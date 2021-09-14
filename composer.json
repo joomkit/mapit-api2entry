@@ -1,0 +1,49 @@
+{
+    "name": "joomkit/mapit-api2entry",
+    "description": "Call mapit api to store results with entry for later mapping",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "mapitapi2entry"
+    ],
+    "support": {
+        "docs": "https://github.com/joomkit/mapit-api2entry/blob/master/README.md",
+        "issues": "https://github.com/joomkit/mapit-api2entry/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alan Sparkes",
+            "homepage": "https://www.joomkit.co.uk"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0"
+    },
+    "require-dev": {
+      "craftcms/cms": "^3.2.0",
+      "codeception/codeception": "^3.0",
+      "vlucas/phpdotenv": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+          "joomkit\\mapitapi2entry\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "mapitApi2entry",
+        "handle": "mapit-api2entry",
+        "developer": "Alan Sparkes",
+        "developerUrl": "https://www.joomkit.co.uk",
+        "documentationUrl": "https://github.com/joomkit/mapit-api2entry/blob/master/README.md",
+        "changelogUrl": "https://raw.githubusercontent.com/joomkit/mapit-api2entry/master/CHANGELOG.md",
+        "components": {
+            "mapitApi2entryService": "joomkit\\mapitapi2entry\\services\\MapitApi2entryService"
+        },
+        "class": "joomkit\\mapitapi2entry\\MapitApi2entry"
+    }
+}

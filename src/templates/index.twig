@@ -1,0 +1,56 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * mapitApi2entry plugin for Craft CMS 3.x
+ *
+ * mapitApi2entry index.twig
+ *
+ * @author    Alan Sparkes
+ * @copyright Copyright (c) 2021 Alan Sparkes
+ * @link      https://www.joomkit.co.uk
+ * @package   MapitApi2entry
+ * @since     1.0.0
+ */
+#}
+
+{% extends "_layouts/cp" %}
+{% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("joomkit\\mapitapi2entry\\assetbundles\\mapitapi2entry\\MapitApi2entryAsset") %}
+{% do view.registerAssetBundle("joomkit\\mapitapi2entry\\assetbundles\\indexcpsection\\IndexCPSectionAsset") %}
+
+{# Link for the ? icon at the bottom of the page #}
+{% set docsUrl = "https://github.com/joomkit/mapit-api2entry/blob/master/README.md" %}
+
+{# The title of this CP section #}
+{% set title = "Mapit API import" %}
+
+{# The URL to this plugin's base CP section #}
+{% set pluginCpUrl = url('mapit-api2entry') %}
+
+{# Get a URL to an image in our AssetBundle #}
+{% set iconUrl = view.getAssetManager().getPublishedUrl('@joomkit/mapitapi2entry/assetbundles/indexcpsection/dist', true) ~ '/img/Index-icon.svg' %}
+
+{# Content that should appear in the page header#}
+{% set extraPageHeaderHtml %}
+    <div class="buttons">
+        <a href="{{ pluginCpUrl }}" class="btn submit add icon">{{ "Click Me!"|t('mapit-api2entry') }}</a>
+    </div>
+{% endset %}
+
+{# The content of the CP Section#}
+{% set content %}
+    <h2>{{ "Mapit API importer"|t('mapit-api2entry') }}</h2>
+    <img src="{{ iconUrl }}" height="64" width="64" />
+    <p class="textline">Fetch map data for grant applications and store it with the releveant open funding regions for use in maps</p>
+
+    <form method="post"  accept-charset="UTF-8">
+    {{ csrfInput() }}
+    
+    {# {{ actionInput('/actions/mapit-api2entry/default/map-it') }} #}
+    <input type="hidden" name="action" value="admin/actions/mapit-api2entry/default/map-it">
+
+    
+    <button class="btn submit add icon" type="submit">Start import</button>
+</form>
+{% endset %}
